@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - image: >-
-          172.30.1.1:5000/myproject/testapp:latest
+          172.30.1.1:5000/myproject/testoc:latest
         imagePullPolicy: Always
         name: testapp
         ports:
@@ -43,13 +43,4 @@ spec:
       terminationGracePeriodSeconds: 30
   test: false
   triggers:
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - testapp
-      from:
-        kind: ImageStreamTag
-        name: 'testapp:latest'
-        namespace: myproject
-    type: ImageChange
   - type: ConfigChange
